@@ -1,0 +1,14 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "event",
+  "description": "Capability for event system",
+  "windows": ["main", "float_clipboard"],
+  "permissions": [
+    "core:event:default",
+    "core:event:allow-listen",
+    "core:event:allow-emit",
+    "core:event:allow-emit-to",
+    "core:event:allow-unlisten"
+  ],
+  "platforms": ["macOS", "linux", "windows"]
+} 

@@ -1,0 +1,12 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "clipboard",
+  "description": "Capability for clipboard operations",
+  "windows": ["main"],
+  "permissions": [
+    "clipboard-manager:default",
+    "clipboard-manager:allow-read-text",
+    "clipboard-manager:allow-write-text"
+  ],
+  "platforms": ["macOS", "linux", "windows"]
+} 
