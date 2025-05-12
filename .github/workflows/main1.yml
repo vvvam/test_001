@@ -1,44 +1,57 @@
-            - name: custom-tauri-action
-  # You may pin to the exact commit or the version.
-  # uses: naveennaidu/tauri-action@c7bf9a1ebc464860f026de91f0b82998b214f745
-  uses: naveennaidu/tauri-action@v1
-  with:
-    # The id of the release to upload artifacts as release assets
-    releaseId: # optional
-    # The tag name of the release to create
-    tagName: # optional
-    # The name of the release to create
-    releaseName: # optional
-    # The body of the release to create
-    releaseBody: # optional
-    # Whether the release to create is a draft or not
-    releaseDraft: # optional
-    # Whether the release to create is a prerelease or not
-    prerelease: # optional
-    # Any branch or commit SHA the Git tag is created from, unused if the Git tag already exists. Default: SHA of current commit
-    releaseCommitish: # optional
-    # The owner of the repository
-    owner: # optional
-    # The name of the repository
-    repo: # optional
-    # path to the root of the project that will be built
-    projectPath: # optional, default is .
-    # path to the tauri.conf.json file if you want a configuration different from the default one
-    configPath: # optional, default is tauri.conf.json
-    # path to the distributable folder with your index.html and JS/CSS
-    distPath: # optional
-    # path to the PNG icon to use as app icon, relative to the projectPath
-    iconPath: # optional
-    # whether to include a debug build or not
-    includeDebug: # optional
-    # whether to include a release build or not
-    includeRelease: # optional, default is true
-    # whether to upload a static JSON file for the updater using GitHub Releases as the CDN
-    includeUpdaterJson: # optional, default is true
-    # the script to run to build the Tauri app
-    tauriScript: # optional
-    # arguments for the tauri command
-    args: # optional
-    # the bundle identifier to inject when initializing the Tauri app
-    bundleIdentifier: # optional
-          
+name: Release
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  release:
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: [macos-latest, ubuntu-20.04, windows-latest]
+    runs-on: ${{ matrix.platform }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install dependencies (ubuntu only)
+        if: matrix.platform == 'ubuntu-20.04'
+        # You can remove libayatana-appindicator3-dev if you don't use the system tray feature.
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.0-dev libayatana-appindicator3-dev librsvg2-dev
+
+      - name: Rust setup
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Rust cache
+        uses: swatinem/rust-cache@v2
+        with:
+          workspaces: './src-tauri -> target'
+
+      - name: Sync node version and setup cache
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/*'
+          cache: 'yarn' # Set this to npm, yarn or pnpm.
+
+      - name: Install frontend dependencies
+        # If you don't have `beforeBuildCommand` configured you may want to build your frontend here too.
+        run: yarn install # Change this to npm, yarn or pnpm.
+
+      - name: Build the app
+        uses: tauri-apps/tauri-action@v0
+
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tagName: ${{ github.ref_name }} # This only works if your workflow triggers on new tags.
+          releaseName: 'App Name v__VERSION__' # tauri-action replaces \_\_VERSION\_\_ with the app version.
+          releaseBody: 'See the assets to download and install this version.'
+          releaseDraft: true
+          prerelease: false
