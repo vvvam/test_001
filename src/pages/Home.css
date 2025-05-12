@@ -1,0 +1,805 @@
+/* 基础样式和全局变量 */
+:root {
+  --primary-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  --hover-gradient: linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%);
+  --dark-gradient: linear-gradient(135deg, #bc4e9c 0%, #f80759 100%);
+  --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  --card-shadow-hover: 0 12px 28px rgba(0, 0, 0, 0.15);
+  --dark-card-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  --dark-card-shadow-hover: 0 12px 28px rgba(0, 0, 0, 0.35);
+  --transition-normal: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-bounce: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 优化Home容器布局 */
+.home-container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  transition: padding 0.3s ease;
+}
+
+/* 修复窗口缩小时的空白区域问题 */
+.filter-container, .action-container {
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.filter-container {
+  gap: 12px;
+}
+
+.action-container {
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* 工具栏样式优化 */
+.clipboard-toolbar {
+  margin-bottom: 24px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition-normal);
+}
+
+/* 列表项容器样式 */
+.clipboard-list-item {
+  position: relative;
+  border-left: none !important;
+  margin-bottom: 16px !important;
+  padding: 0 !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  transition: var(--transition-normal) !important;
+}
+
+/* 列表项内容容器 */
+.list-item-container {
+  width: 100%;
+  padding: 16px 20px;
+  transition: var(--transition-normal);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+.dark-theme .list-item-container {
+  background: rgba(30, 30, 30, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+.list-item-container::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(106, 17, 203, 0.05), rgba(37, 117, 252, 0.05));
+  transition: var(--transition-normal);
+}
+
+.dark-theme .list-item-container::after {
+  background: linear-gradient(135deg, rgba(142, 45, 226, 0.1), rgba(74, 0, 224, 0.1));
+}
+
+.list-item-container:hover::after {
+  opacity: 1;
+}
+
+.list-item-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+.dark-theme .list-item-container:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* 优化剪切板历史列表左侧样式 */
+.clipboard-list-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--primary-gradient);
+  border-radius: 4px 0 0 4px;
+  transition: var(--transition-normal);
+}
+
+.clipboard-list-item:hover::before {
+  width: 6px;
+  background: var(--hover-gradient);
+}
+
+.dark-theme .clipboard-list-item::before {
+  background: var(--hover-gradient);
+}
+
+.dark-theme .clipboard-list-item:hover::before {
+  background: var(--dark-gradient);
+}
+
+/* 底部信息栏样式 */
+.clipboard-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.dark-theme .clipboard-footer {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 信息区域和操作区域布局 */
+.clipboard-info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.clipboard-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.action-button, .ai-analysis-button, .translate-button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+.translate-button {
+  color: #1890ff !important;
+  background: rgba(24, 144, 255, 0.1) !important;
+}
+
+.translate-button:hover {
+  color: #1890ff !important;
+  background: rgba(24, 144, 255, 0.2) !important;
+}
+
+.ai-analysis-button {
+  color: #52c41a !important;
+  background: rgba(82, 196, 26, 0.1) !important;
+}
+
+.ai-analysis-button:hover {
+  color: #52c41a !important;
+  background: rgba(82, 196, 26, 0.2) !important;
+}
+
+.dark-theme .clipboard-actions .action-button,
+.dark-theme .clipboard-actions .ai-analysis-button,
+.dark-theme .clipboard-actions .translate-button {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.dark-theme .translate-button {
+  color: #40a9ff;
+}
+
+.dark-theme .ai-analysis-button {
+  color: #73d13d;
+}
+
+.list-item-container:hover .clipboard-actions {
+  opacity: 1;
+}
+
+/* 优化AI分析图标布局 */
+.ai-analysis-button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 50% !important;
+  width: 32px !important;
+  height: 32px !important;
+  transition: var(--transition-bounce) !important;
+  background: rgba(24, 144, 255, 0.1) !important;
+  margin-right: 5px !important;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.2) !important;
+}
+
+.ai-analysis-button:hover {
+  background: rgba(24, 144, 255, 0.2) !important;
+  transform: scale(1.12);
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3) !important;
+}
+
+.dark-theme .ai-analysis-button {
+  background: rgba(24, 144, 255, 0.2) !important;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.3) !important;
+}
+
+.dark-theme .ai-analysis-button:hover {
+  background: rgba(24, 144, 255, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.4) !important;
+}
+
+.clipboard-actions .anticon {
+  font-size: 16px;
+  transition: var(--transition-bounce);
+}
+
+.clipboard-actions .anticon:hover {
+  transform: scale(1.2);
+}
+
+/* 响应式调整 */
+@media (max-width: 1200px) {
+  .home-container {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .home-container {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    padding: 12px 8px;
+  }
+  
+  .filter-container, .action-container {
+    gap: 8px;
+    justify-content: flex-start;
+  }
+  
+  .action-container {
+    margin-top: 8px;
+  }
+  
+  .clipboard-toolbar {
+    padding: 12px 16px;
+  }
+  
+  .list-item-container {
+    padding: 12px 16px;
+  }
+  
+  .glass-effect {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  
+  .clipboard-content {
+    font-size: 13px;
+  }
+  
+  .clipboard-actions {
+    gap: 6px;
+  }
+  
+  .action-button, .ai-analysis-button, .translate-button {
+    width: 28px !important;
+    height: 28px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .home-container {
+    padding: 8px;
+  }
+  
+  .list-item-container {
+    padding: 12px;
+  }
+  
+  .clipboard-toolbar {
+    padding: 10px 12px;
+    margin-bottom: 16px;
+  }
+  
+  .filter-container .ant-input-search {
+    width: 100% !important;
+  }
+  
+  .refresh-button, .filter-button {
+    font-size: 12px !important;
+    height: 32px !important;
+    padding: 0 10px !important;
+  }
+  
+  .action-button, .ai-analysis-button {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 14px !important;
+  }
+  
+  .clipboard-actions {
+    gap: 2px;
+  }
+  
+  .clipboard-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .clipboard-info {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .clipboard-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+/* 玻璃效果样式 */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+  transition: var(--transition-normal) !important;
+}
+
+.dark-theme .glass-effect {
+  background: rgba(18, 18, 18, 0.65) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* 展开/收起按钮样式 */
+.ant-btn-link {
+  color: #1890ff !important;
+  padding: 4px 8px !important;
+}
+
+.dark-theme .ant-btn-link {
+  color: #40a9ff !important;
+}
+
+/* 内容展开/折叠样式 */
+.clipboard-content {
+  transition: all 0.3s ease;
+  position: relative;
+  word-break: break-word;
+  white-space: pre-wrap;
+  overflow: auto;
+  max-height: none;
+  transition: max-height 0.3s ease-in-out;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.85);
+  margin-bottom: 10px;
+  padding: 0 4px;
+  padding-right: 36px; /* 为展开按钮留出空间 */
+}
+
+.dark-theme .clipboard-content {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* 折叠内容样式 */
+.content-ellipsis {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 4.5em;
+  line-height: 1.5;
+}
+
+/* 卡片网格样式增强 */
+.clipboard-grid {
+  margin: 0 -8px;
+}
+
+.grid-col-sm, .grid-col-md, .grid-col-lg {
+  padding: 8px;
+}
+
+.clipboard-grid .ant-card {
+  height: 100% !important;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-bounce);
+}
+
+.clipboard-grid .ant-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--card-shadow-hover) !important;
+}
+
+.dark-theme .clipboard-grid .ant-card:hover {
+  box-shadow: var(--dark-card-shadow-hover) !important;
+}
+
+/* 美化分类标签和时间戳 */
+.clipboard-category {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  background: rgba(24, 144, 255, 0.1);
+  color: #1890ff;
+  transition: var(--transition-normal);
+}
+
+.clipboard-category:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(24, 144, 255, 0.2);
+}
+
+.dark-theme .clipboard-category {
+  background: rgba(24, 144, 255, 0.2);
+}
+
+.clipboard-timestamp {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  margin-left: 4px;
+}
+
+.dark-theme .clipboard-timestamp {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* 工具按钮样式 */
+.refresh-button, .filter-button {
+  border-radius: 8px !important;
+  transition: var(--transition-normal) !important;
+  display: flex !important;
+  align-items: center !important;
+  height: 36px !important;
+}
+
+.refresh-button {
+  background: rgba(24, 144, 255, 0.1) !important;
+  border: 1px solid rgba(24, 144, 255, 0.2) !important;
+  color: #1890ff !important;
+  box-shadow: 0 2px 6px rgba(24, 144, 255, 0.15) !important;
+}
+
+.refresh-button:hover {
+  background: rgba(24, 144, 255, 0.15) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.2) !important;
+}
+
+.dark-theme .refresh-button {
+  background: rgba(24, 144, 255, 0.15) !important;
+  box-shadow: 0 2px 6px rgba(24, 144, 255, 0.25) !important;
+}
+
+.dark-theme .refresh-button:hover {
+  background: rgba(24, 144, 255, 0.2) !important;
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3) !important;
+}
+
+.filter-button {
+  border-radius: 8px !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05) !important;
+}
+
+.dark-theme .filter-button {
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) !important;
+}
+
+.filter-button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(82, 196, 26, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(82, 196, 26, 0.15) !important;
+}
+
+.dark-theme .filter-button:hover {
+  box-shadow: 0 4px 12px rgba(82, 196, 26, 0.2) !important;
+}
+
+/* 列表项操作按钮样式 */
+.action-button {
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+.dark-theme .action-button {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.action-button:hover {
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+
+.dark-theme .action-button:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* 精细响应式布局调整 */
+@media (max-width: 480px) {
+  .clipboard-card-content {
+    flex-direction: column;
+  }
+  
+  .clipboard-index {
+    margin-right: 0 !important;
+    margin-bottom: 6px !important;
+  }
+  
+  .list-item-container {
+    padding: 12px !important;
+  }
+  
+  .clipboard-content {
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+  }
+}
+
+/* 优化下拉菜单样式 */
+.ant-dropdown-menu {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  padding: 6px !important;
+}
+
+.dark-theme .ant-dropdown-menu {
+  background: rgba(30, 30, 30, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3) !important;
+}
+
+.ant-dropdown-menu-item {
+  border-radius: 6px !important;
+  margin: 2px 0 !important;
+  transition: var(--transition-normal) !important;
+  padding: 8px 12px !important;
+  color: rgba(0, 0, 0, 0.85) !important;
+}
+
+.dark-theme .ant-dropdown-menu-item {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.ant-dropdown-menu-item:hover {
+  background: rgba(24, 144, 255, 0.1) !important;
+  color: #1890ff !important;
+  transform: translateX(2px);
+}
+
+.dark-theme .ant-dropdown-menu-item:hover {
+  background: rgba(24, 144, 255, 0.2) !important;
+  color: #1890ff !important;
+}
+
+.ant-dropdown-menu-item-danger {
+  color: #ff4d4f !important;
+}
+
+.ant-dropdown-menu-item-danger:hover {
+  background: rgba(255, 77, 79, 0.1) !important;
+  color: #ff4d4f !important;
+}
+
+.dark-theme .ant-dropdown-menu-item-danger:hover {
+  background: rgba(255, 77, 79, 0.2) !important;
+}
+
+/* 卡片渐变边框效果 */
+.ant-card.glass-effect {
+  position: relative;
+  background-clip: padding-box !important;
+  border: 1px solid transparent !important;
+}
+
+.ant-card.glass-effect::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  z-index: -1;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(106, 17, 203, 0.2), rgba(37, 117, 252, 0.2));
+  opacity: 0;
+  transition: var(--transition-normal);
+}
+
+.ant-card.glass-effect:hover::before {
+  opacity: 0.7;
+}
+
+.dark-theme .ant-card.glass-effect::before {
+  background: linear-gradient(135deg, rgba(142, 45, 226, 0.3), rgba(74, 0, 224, 0.3));
+}
+
+/* 增强按钮悬停效果 */
+.action-button:hover,
+.ai-analysis-button:hover {
+  transform: scale(1.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme .action-button:hover,
+.dark-theme .ai-analysis-button:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 下拉菜单触发按钮的特殊样式 */
+.ant-dropdown-trigger {
+  position: relative;
+}
+
+.ant-dropdown-trigger::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--primary-gradient);
+  transition: var(--transition-normal);
+  transform: translateX(-50%);
+}
+
+.ant-dropdown-open.ant-dropdown-trigger::after,
+.ant-dropdown-trigger:hover::after {
+  width: 80%;
+}
+
+/* 优化更多操作按钮 */
+.dropdown-more-btn {
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.03) !important;
+}
+
+.dark-theme .dropdown-more-btn {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dropdown-more-btn:hover,
+.ant-dropdown-open .dropdown-more-btn {
+  background: rgba(24, 144, 255, 0.1) !important;
+  color: #1890ff !important;
+}
+
+.dark-theme .dropdown-more-btn:hover,
+.dark-theme .ant-dropdown-open .dropdown-more-btn {
+  background: rgba(24, 144, 255, 0.2) !important;
+  color: #40a9ff !important;
+}
+
+/* 加强下拉菜单的视觉效果 */
+.ant-dropdown {
+  animation-duration: 0.2s !important;
+}
+
+.ant-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  right: 16px;
+  width: 12px;
+  height: 12px;
+  background: inherit;
+  transform: rotate(45deg);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-left: 1px solid rgba(0, 0, 0, 0.06);
+  pointer-events: none;
+  border-radius: 2px;
+}
+
+.dark-theme .ant-dropdown::before {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* 更鲜明的下拉菜单项 */
+.ant-dropdown-menu-item .anticon {
+  margin-right: 8px;
+  font-size: 14px;
+  color: inherit;
+}
+
+.ant-dropdown-menu-item:active {
+  background: rgba(24, 144, 255, 0.2) !important;
+}
+
+.dark-theme .ant-dropdown-menu-item:active {
+  background: rgba(24, 144, 255, 0.3) !important;
+}
+
+/* 强化下拉菜单分割线 */
+.ant-dropdown-menu-item-divider {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+  margin: 6px 0 !important;
+}
+
+.dark-theme .ant-dropdown-menu-item-divider {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* 修复下拉菜单显示问题 */
+.ant-dropdown {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.ant-dropdown-menu {
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: rgba(0, 0, 0, 0.85) !important;
+  background-color: #fff !important;
+  box-shadow: 0 3px 6px -4px rgba(0,0,0,0.12), 0 6px 16px 0 rgba(0,0,0,0.08), 0 9px 28px 8px rgba(0,0,0,0.05) !important;
+}
+
+.dark-theme .ant-dropdown-menu {
+  color: rgba(255, 255, 255, 0.85) !important;
+  background-color: #1f1f1f !important;
+}
+
+/* 搜索结果高亮样式 */
+.search-highlight {
+  background-color: rgba(24, 144, 255, 0.15);
+  color: #1890ff;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+.dark-theme .search-highlight {
+  background-color: rgba(24, 144, 255, 0.25);
+  color: #40a9ff;
+}
+
+/* 优化序号样式 */
+.clipboard-index {
+  font-weight: 700;
+  font-size: 14px;
+  color: #1890ff;
+  margin-right: 10px;
+  min-width: 24px;
+  text-align: center;
+}
+
+.dark-theme .clipboard-index {
+  color: #40a9ff;
+}
+
+/* 分类标签样式优化 */
+.ant-tag {
+  font-size: 12px;
+  padding: 1px 8px;
+  border-radius: 10px;
+  margin-right: 6px;
+}

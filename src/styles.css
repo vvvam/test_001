@@ -1,0 +1,1619 @@
+.logo.vite:hover {
+  filter: drop-shadow(0 0 2em #747bff);
+}
+
+.logo.typescript:hover {
+  filter: drop-shadow(0 0 2em #2d79c7);
+}
+
+:root {
+  font-family: 'Roboto', 'SF Pro Display', Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  /* 深色主题变量 */
+  --dark-primary-color: #2196f3;
+  --dark-secondary-color: #03a9f4;
+  --dark-accent-color: #00bcd4;
+  --dark-background-color: rgba(18, 22, 33, 0.95);
+  --dark-content-bg: rgba(28, 32, 44, 0.85);
+  --dark-text-color: rgba(255, 255, 255, 0.85);
+  --dark-text-secondary: rgba(255, 255, 255, 0.65);
+  --dark-border-color: rgba(99, 179, 237, 0.2);
+  --dark-card-bg: rgba(36, 40, 56, 0.9);
+  --dark-hover-bg: rgba(33, 150, 243, 0.15);
+  --dark-shadow-color-rgb: 0, 0, 0;
+  --dark-bg-color-rgb: 36, 40, 56;
+  --dark-border-color-rgb: 99, 179, 237;
+
+  /* 浅色主题变量 */
+  --light-primary-color: #1890ff;
+  --light-secondary-color: #1677ff;
+  --light-accent-color: #40a9ff;
+  --light-background-color: rgba(240, 245, 255, 0.95);
+  --light-content-bg: rgba(250, 252, 255, 0.85);
+  --light-text-color: rgba(0, 0, 0, 0.85);
+  --light-text-secondary: rgba(0, 0, 0, 0.65);
+  --light-border-color: rgba(0, 30, 60, 0.12);
+  --light-card-bg: rgba(255, 255, 255, 0.95);
+  --light-hover-bg: rgba(24, 144, 255, 0.08);
+  --light-shadow-color-rgb: 0, 0, 0;
+  --light-bg-color-rgb: 255, 255, 255;
+  --light-border-color-rgb: 0, 30, 60;
+
+  /* 默认使用深色主题 */
+  --primary-color: var(--dark-primary-color);
+  --secondary-color: var(--dark-secondary-color);
+  --accent-color: var(--dark-accent-color);
+  --background-color: var(--dark-background-color);
+  --content-bg: var(--dark-content-bg);
+  --text-color: var(--dark-text-color);
+  --text-secondary: var(--dark-text-secondary);
+  --border-color: var(--dark-border-color);
+  --card-bg: var(--dark-card-bg);
+  --hover-bg: var(--dark-hover-bg);
+  --shadow-color-rgb: var(--dark-shadow-color-rgb);
+  --bg-color-rgb: var(--dark-bg-color-rgb);
+  --border-color-rgb: var(--dark-border-color-rgb);
+
+  /* 通用样式设置 */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* 浅色主题样式 */
+body.light-theme {
+  background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+  position: relative;
+  overflow: hidden;
+  
+  /* 使用浅色主题变量 */
+  --primary-color: var(--light-primary-color);
+  --background-color: var(--light-background-color);
+  --content-bg: var(--light-content-bg);
+  --text-color: var(--light-text-color);
+  --text-secondary: var(--light-text-secondary);
+  --border-color: var(--light-border-color);
+  --card-bg: var(--light-card-bg);
+  --hover-bg: var(--light-hover-bg);
+  --shadow-color-rgb: var(--light-shadow-color-rgb);
+  --bg-color-rgb: var(--light-bg-color-rgb);
+  --border-color-rgb: var(--light-border-color-rgb);
+}
+
+body.light-theme::before {
+  content: none;
+}
+
+body.light-theme::after {
+  content: none;
+}
+
+/* 深色主题样式 */
+body.dark-theme {
+  background: linear-gradient(135deg, #0d1526 0%, #1a2439 100%);
+  position: relative;
+  overflow: hidden;
+  
+  /* 使用深色主题变量 */
+  --primary-color: var(--dark-primary-color);
+  --background-color: var(--dark-background-color);
+  --content-bg: var(--dark-content-bg);
+  --text-color: var(--dark-text-color);
+  --text-secondary: var(--dark-text-secondary);
+  --border-color: var(--dark-border-color);
+  --card-bg: var(--dark-card-bg);
+  --hover-bg: var(--dark-hover-bg);
+  --shadow-color-rgb: var(--dark-shadow-color-rgb);
+  --bg-color-rgb: var(--dark-bg-color-rgb);
+  --border-color-rgb: var(--dark-border-color-rgb);
+}
+
+body.dark-theme::before {
+  content: none;
+}
+
+body.dark-theme::after {
+  content: none;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-color);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  margin: 0;
+  padding-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: 0.75s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.logo.tauri:hover {
+  filter: drop-shadow(0 0 2em #24c8db);
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+h1 {
+  text-align: center;
+}
+
+input,
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  color: #0f0f0f;
+  background-color: #ffffff;
+  transition: border-color 0.25s;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: #396cd8;
+}
+button:active {
+  border-color: #396cd8;
+  background-color: #e8e8e8;
+}
+
+input,
+button {
+  outline: none;
+}
+
+#greet-input {
+  margin-right: 5px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #f6f6f6;
+    background-color: #2f2f2f;
+  }
+
+  a:hover {
+    color: #24c8db;
+  }
+
+  input,
+  button {
+    color: #ffffff;
+    background-color: #0f0f0f98;
+  }
+  button:active {
+    background-color: #0f0f0f69;
+  }
+}
+
+/* 磨砂玻璃效果 */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.dark-theme .glass-effect {
+  background: rgba(18, 18, 18, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* 布局样式 */
+.app-layout {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* 优化侧边栏 */
+.glass-sidebar {
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-right: 10px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0;
+  z-index: 100;
+  height: 100vh !important;
+}
+
+.glass-sidebar .ant-layout-sider-children {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.glass-sidebar .logo {
+  margin: 10px 0; /* 调整顶部边距 */
+}
+
+.glass-sidebar .ant-menu {
+  flex: 1;
+}
+
+.glass-sidebar .ant-menu-item {
+  margin: 5px 0;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.glass-sidebar .ant-menu-item-selected {
+  background: rgba(24, 144, 255, 0.1);
+  border-radius: 8px;
+}
+
+.glass-sidebar .ant-menu-item-active {
+  background: rgba(24, 144, 255, 0.05);
+  border-radius: 8px;
+}
+
+/* 应用布局 - 移除顶部标题栏相关样式 */
+.main-content {
+  padding: 16px; /* 调整内边距 */
+  flex: 1;
+  overflow: auto;
+  height: 100%;
+}
+
+.glass-header {
+  background: rgba(255, 255, 255, 0.3) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+  padding: 0 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 48px;
+}
+
+.dark-theme .glass-header {
+  background: rgba(18, 18, 18, 0.5) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+}
+
+/* 移除标题栏相关样式 */
+.title-bar {
+  display: none !important;
+}
+
+.glass-content {
+  margin: 16px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  overflow-y: auto;
+}
+
+.dark-theme .glass-content {
+  background: rgba(18, 18, 18, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.glass-menu {
+  background: transparent !important;
+  border-right: none !important;
+}
+
+.logo {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.content-container {
+  margin: 16px;
+  overflow-y: auto;
+  height: calc(100vh - 80px);
+}
+
+/* 剪贴板项样式 */
+.clipboard-item {
+  margin-bottom: 16px;
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.dark-theme .clipboard-item {
+  background: rgba(36, 40, 56, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.clipboard-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  border-color: rgba(24, 144, 255, 0.3);
+}
+
+.dark-theme .clipboard-item:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* 剪贴板内容优化样式 */
+.clipboard-card-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.clipboard-content {
+  position: relative;
+  padding: 8px 0;
+  word-break: break-word;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  color: var(--text-color);
+}
+
+.content-ellipsis {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 6em;
+}
+
+.clipboard-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid rgba(var(--border-color-rgb), 0.08);
+}
+
+.clipboard-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.clipboard-actions {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.clipboard-timestamp {
+  font-size: 12px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+}
+
+.clipboard-category {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  background: rgba(var(--border-color-rgb), 0.1);
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+/* 分类颜色 */
+.category-code {
+  border-left: 3px solid #1890ff;
+}
+
+.category-text {
+  border-left: 3px solid #52c41a;
+}
+
+.category-link {
+  border-left: 3px solid #722ed1;
+}
+
+.category-image {
+  border-left: 3px solid #fa8c16;
+}
+
+.category-other {
+  border-left: 3px solid #faad14;
+}
+
+/* 列表和网格布局 */
+.clipboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 12px 16px;
+}
+
+.clipboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 16px;
+}
+
+.clipboard-grid-compact {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+  .clipboard-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    padding: 12px;
+  }
+  
+  .clipboard-grid-compact {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+  }
+  
+  .clipboard-list {
+    gap: 12px;
+    padding: 12px;
+  }
+  
+  .clipboard-actions {
+    gap: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .clipboard-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 8px;
+  }
+  
+  .clipboard-grid-compact {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .clipboard-content {
+    -webkit-line-clamp: 2;
+    max-height: 4.8em;
+  }
+}
+
+/* 剪贴板卡片样式 */
+.premium-glass {
+  background: rgba(var(--bg-color-rgb), 0.15);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px 0 rgba(var(--shadow-color-rgb), 0.1);
+  border-radius: 15px;
+  border: 1px solid rgba(var(--border-color-rgb), 0.18);
+  transition: all 0.3s ease;
+}
+
+.premium-glass:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 40px 0 rgba(var(--shadow-color-rgb), 0.15);
+  border: 1px solid rgba(var(--border-color-rgb), 0.25);
+}
+
+.elegant-border {
+  border: 1px solid rgba(var(--border-color-rgb), 0.12);
+  transition: border-color 0.3s ease;
+}
+
+.elegant-border:hover {
+  border-color: rgba(var(--border-color-rgb), 0.35);
+}
+
+/* 内容展开/收起按钮 */
+.expand-more-btn {
+  text-align: center;
+  color: var(--text-color-secondary);
+  font-size: 12px;
+  padding: 4px 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.expand-more-btn:hover {
+  color: var(--primary-color);
+}
+
+/* 内容遮罩层优化 */
+.content-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  background: linear-gradient(to bottom, rgba(var(--bg-color-rgb), 0), rgba(var(--bg-color-rgb), 0.8));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 修复剪贴板内容区域与详情抽屉内容的样式 */
+.clipboard-content {
+  position: relative;
+  padding: 4px 0;
+  cursor: pointer;
+}
+
+.clipboard-content.expanded {
+  height: auto !important;
+  max-height: none !important;
+  -webkit-line-clamp: initial !important;
+}
+
+/* 自适应网格布局优化 */
+@media (max-width: 576px) {
+  .ant-col-xs-24 {
+    padding: 0 8px !important;
+  }
+  
+  .clipboard-item {
+    margin-bottom: 12px !important;
+  }
+}
+
+/* 美化抽屉内容 */
+.drawer-section {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  position: relative;
+}
+
+.drawer-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  right: 20%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border-color), transparent);
+}
+
+.drawer-section:last-child::after {
+  display: none;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+.dark-theme ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.dark-theme ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* 覆盖Ant Design组件样式 */
+.ant-layout {
+  background: transparent;
+}
+
+.ant-menu-dark {
+  background: transparent;
+}
+
+.ant-drawer-content {
+  background: var(--content-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.ant-drawer-title, 
+.ant-drawer-close,
+.ant-modal-title {
+  color: var(--text-color) !important;
+}
+
+.light-theme .ant-input,
+.light-theme .ant-input-affix-wrapper,
+.light-theme .ant-select-selector,
+.light-theme .ant-input-number {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-color) !important;
+}
+
+.dark-theme .ant-input,
+.dark-theme .ant-input-affix-wrapper,
+.dark-theme .ant-select-selector,
+.dark-theme .ant-input-number {
+  background: rgba(45, 45, 45, 0.7) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-color) !important;
+}
+
+.light-theme .ant-card,
+.light-theme .tech-card {
+  background: var(--card-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.dark-theme .ant-card,
+.dark-theme .tech-card {
+  background: var(--card-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 卡片和组件更新 - 科技感 */
+.tech-card {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.dark-theme .tech-card {
+  background: rgba(36, 40, 56, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.tech-btn {
+  background: rgba(24, 144, 255, 0.85) !important;
+  border: none !important;
+  color: white !important;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 2px 6px rgba(24, 144, 255, 0.3) !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-btn:hover {
+  background: rgba(24, 144, 255, 1) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.4) !important;
+}
+
+.tech-btn::before {
+  content: none;
+}
+
+.tech-card::after {
+  content: none;
+}
+
+/* 重新定义neon-text类，为Copy2AI添加更现代化的样式 */
+.neon-text {
+  background: linear-gradient(135deg, #1890ff, #1677ff, #40a9ff, #69c0ff);
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-animation 8s ease infinite;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 8px rgba(24, 144, 255, 0.5);
+  position: relative;
+  display: inline-block;
+}
+
+.neon-text::after {
+  content: 'Copy2AI';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: none;
+  filter: blur(4px);
+  opacity: 0.7;
+  color: rgba(24, 144, 255, 0.7);
+}
+
+.dark-theme .neon-text {
+  background: linear-gradient(135deg, #2196f3, #03a9f4, #00bcd4, #4fc3f7);
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-shadow: 0 0 10px rgba(33, 150, 243, 0.7);
+}
+
+.dark-theme .neon-text::after {
+  color: rgba(33, 150, 243, 0.8);
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 主题选择器样式 */
+.theme-selector {
+  display: flex;
+  gap: 8px;
+}
+
+.theme-option {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: all 0.3s;
+  position: relative;
+  z-index: 0;
+}
+
+/* 增强主题选中效果 */
+.theme-option.active {
+  box-shadow: 0 0 0 2px var(--primary-color), 0 0 12px rgba(24, 144, 255, 0.4);
+  transform: translateY(-2px);
+  position: relative;
+  z-index: 1;
+}
+
+.theme-option.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--primary-color);
+  border-radius: 0 0 8px 8px;
+}
+
+.light-theme .theme-option[value="light"].active {
+  background: #f0f7ff;
+  color: #1890ff;
+  font-weight: 500;
+}
+
+.dark-theme .theme-option[value="dark"].active {
+  background: #0d1526;
+  color: #40a9ff;
+  font-weight: 500;
+}
+
+.light-theme .theme-option[value="system"].active,
+.dark-theme .theme-option[value="system"].active {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+/* 修复浅色主题下的灰色背景问题 */
+.light-theme .settings-container .ant-card,
+.light-theme .roles-container .ant-card {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(24, 144, 255, 0.1);
+}
+
+.roles-container .ant-card {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s;
+}
+
+.light-theme .roles-container .ant-card-actions {
+  background: rgba(240, 240, 240, 0.8);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dark-theme .roles-container .ant-card-actions {
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid var(--border-color);
+}
+
+/* 聊天页面样式 */
+.chat-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.messages-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 4px;
+  margin-bottom: 16px;
+}
+
+.message-item {
+  margin-bottom: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 4px !important;
+}
+
+.user-message {
+  justify-content: flex-end;
+}
+
+.ai-message {
+  justify-content: flex-start;
+}
+
+.message-content {
+  max-width: 80%;
+  word-break: break-word;
+}
+
+/* 角色页面样式 */
+.roles-container .ant-card {
+  border: 1px solid var(--border-color);
+  background: rgba(30, 30, 30, 0.7);
+  transition: all 0.3s;
+}
+
+.roles-container .ant-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.roles-container .ant-card-actions {
+  border-top: 1px solid var(--border-color);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* 设置页面样式 */
+.settings-container .ant-card {
+  background: rgba(30, 30, 30, 0.7);
+  border: 1px solid var(--border-color);
+}
+
+.settings-container .ant-divider {
+  border-color: var(--border-color);
+}
+
+/* 通用组件样式优化 */
+.ant-btn {
+  border-radius: 6px;
+}
+
+.ant-input,
+.ant-input-affix-wrapper,
+.ant-select-selector,
+.ant-input-number {
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+}
+
+.dark-theme .ant-input,
+.dark-theme .ant-input-affix-wrapper,
+.dark-theme .ant-select-selector,
+.dark-theme .ant-input-number {
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.light-theme .ant-input,
+.light-theme .ant-input-affix-wrapper,
+.light-theme .ant-select-selector,
+.light-theme .ant-input-number {
+  background: rgba(255, 255, 255, 0.6) !important;
+}
+
+.dark-theme .ant-input,
+.dark-theme .ant-input-affix-wrapper,
+.dark-theme .ant-select-selector,
+.dark-theme .ant-input-number {
+  background: rgba(36, 40, 56, 0.6) !important;
+}
+
+.ant-input:hover,
+.ant-input-affix-wrapper:hover,
+.ant-select-selector:hover,
+.ant-input-number:hover {
+  border-color: rgba(24, 144, 255, 0.5) !important;
+}
+
+/* 下拉菜单样式 */
+.ant-dropdown {
+  background-color: var(--bg-color);
+  box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  padding: 4px 0;
+  z-index: 1050;
+}
+
+.ant-dropdown-menu {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.ant-dropdown-menu-item {
+  padding: 5px 12px;
+  color: var(--text-color);
+}
+
+.ant-dropdown-menu-item:hover {
+  background-color: var(--hover-color, rgba(0, 0, 0, 0.04));
+}
+
+/* 下拉菜单触发器增强 */
+.ant-dropdown-trigger {
+  position: relative;
+}
+
+.ant-dropdown-trigger::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: 1;
+}
+
+/* 浅色主题下拉菜单样式 */
+[data-theme="light"] .ant-dropdown,
+body.light-theme .ant-dropdown {
+  background-color: #fff !important;
+  color: rgba(0, 0, 0, 0.88) !important;
+  box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12) !important;
+  border: 1px solid #f0f0f0 !important;
+}
+
+[data-theme="light"] .ant-dropdown-menu,
+body.light-theme .ant-dropdown-menu {
+  background-color: #fff !important;
+  color: rgba(0, 0, 0, 0.88) !important;
+}
+
+[data-theme="light"] .ant-dropdown-menu-item,
+body.light-theme .ant-dropdown-menu-item {
+  color: rgba(0, 0, 0, 0.88) !important;
+}
+
+[data-theme="light"] .ant-dropdown-menu-item:hover,
+body.light-theme .ant-dropdown-menu-item:hover {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+/* 深色主题下拉菜单样式 */
+[data-theme="dark"] .ant-dropdown,
+body.dark-theme .ant-dropdown {
+  background-color: #1f1f1f !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.3), 0 3px 6px -4px rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid #303030 !important;
+}
+
+[data-theme="dark"] .ant-dropdown-menu,
+body.dark-theme .ant-dropdown-menu {
+  background-color: #1f1f1f !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+[data-theme="dark"] .ant-dropdown-menu-item,
+body.dark-theme .ant-dropdown-menu-item {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+[data-theme="dark"] .ant-dropdown-menu-item:hover,
+body.dark-theme .ant-dropdown-menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 修复Ant Design提示菜单动画问题 */
+.ant-slide-up-enter,
+.ant-slide-up-appear,
+.ant-slide-up-leave,
+.ant-slide-down-enter,
+.ant-slide-down-appear,
+.ant-slide-down-leave,
+.ant-zoom-enter,
+.ant-zoom-appear,
+.ant-zoom-leave {
+  animation-duration: 0.2s !important; /* 增加动画持续时间，使其更流畅 */
+}
+
+/* 确保动画效果能正确应用 */
+.ant-dropdown.ant-slide-up-enter,
+.ant-dropdown.ant-slide-up-appear {
+  opacity: 0;
+  animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1) !important;
+}
+
+.ant-dropdown.ant-slide-up-enter-active,
+.ant-dropdown.ant-slide-up-appear-active {
+  opacity: 1;
+  transition: opacity 0.2s cubic-bezier(0.23, 1, 0.32, 1) !important;
+}
+
+.ant-dropdown.ant-slide-up-leave {
+  opacity: 1;
+  animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06) !important;
+}
+
+.ant-dropdown.ant-slide-up-leave-active {
+  opacity: 0;
+  transition: opacity 0.2s cubic-bezier(0.755, 0.05, 0.855, 0.06) !important;
+}
+
+/* 增强下拉菜单的展开交互，但不强制一直显示 */
+.ant-dropdown-menu.ant-dropdown-menu-root {
+  margin-top: 0;
+  padding: 6px 0;
+  min-width: 120px;
+}
+
+/* 确保垂直方向上的菜单项正确显示 */
+.ant-dropdown-menu-vertical > .ant-dropdown-menu-item,
+.ant-dropdown-menu-vertical-left > .ant-dropdown-menu-item,
+.ant-dropdown-menu-vertical-right > .ant-dropdown-menu-item {
+  padding: 8px 16px;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+}
+
+/* 按钮下拉菜单样式 - 特别针对清空按钮，但不强制显示 */
+button.ant-btn + .ant-dropdown .ant-dropdown-menu,
+.ant-btn + .ant-dropdown .ant-dropdown-menu {
+  padding: 6px 0;
+  min-width: 120px;
+  position: absolute;
+  z-index: 1100;
+}
+
+/* 添加科技感UI元素 */
+.tech-border {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tech-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--primary-color), transparent, var(--primary-color));
+  z-index: -1;
+  animation: tech-border-animation 8s linear infinite;
+  border-radius: 12px;
+}
+
+@keyframes tech-border-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 添加动态效果 */
+.pulse-effect {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(24, 144, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(24, 144, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(24, 144, 255, 0);
+  }
+}
+
+/* 圆角和边缘优化 */
+.tech-rounded {
+  border-radius: 12px;
+}
+
+/* 按钮高亮状态 */
+.ant-btn-primary {
+  background: linear-gradient(to right, 
+    rgba(24, 144, 255, 0.9), 
+    rgba(24, 144, 255, 1)
+  ) !important;
+  border: none !important;
+  box-shadow: 0 2px 5px rgba(24, 144, 255, 0.3);
+}
+
+/* 剪贴板序号样式 */
+.clipboard-index {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.45);
+  background-color: rgba(240, 240, 240, 0.8);
+  padding: 2px 8px;
+  border-radius: 12px;
+  z-index: 2;
+}
+
+.dark-theme .clipboard-index {
+  color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(60, 60, 60, 0.8);
+}
+
+/* AI角色卡片样式 */
+.ai-role-card {
+  transition: all 0.3s ease;
+}
+
+.ai-role-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* AI分析按钮高亮 */
+.clipboard-actions .ant-btn-text:focus-visible {
+  color: #1677ff;
+  background-color: rgba(22, 119, 255, 0.1);
+}
+
+/* 侧边栏浅色主题样式修复 */
+.light-theme .glass-sidebar {
+  background: rgba(255, 255, 255, 0.7) !important;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05) !important;
+  border-right: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+.light-theme .glass-sidebar .ant-menu-light {
+  background: transparent !important;
+}
+
+.light-theme .glass-sidebar .ant-menu-light .ant-menu-item-selected {
+  background: rgba(24, 144, 255, 0.1) !important;
+  color: #1890ff;
+}
+
+.light-theme .glass-sidebar .ant-menu-light .ant-menu-item:hover {
+  color: #1890ff !important;
+  background: rgba(24, 144, 255, 0.05) !important;
+}
+
+.light-theme .glass-sidebar .ant-menu-item {
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.light-theme .glass-sidebar .ant-layout-sider-trigger {
+  background: rgba(240, 240, 240, 0.6);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* 修复菜单折叠状态下的样式 */
+.ant-layout-sider-collapsed .ant-menu-item .ant-menu-item-icon {
+  margin-right: 0 !important;
+}
+
+/* 暗色主题下侧边栏样式微调 */
+.dark-theme .glass-sidebar {
+  background: rgba(18, 18, 28, 0.5) !important;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* 颜色选择器样式修复 */
+.ant-color-picker .ant-color-picker-color-block {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme .ant-color-picker .ant-color-picker-color-block {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ant-color-picker-trigger {
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+.dark-theme .ant-color-picker-trigger {
+  background-color: rgba(36, 40, 56, 0.6);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.ant-color-picker-panel {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08);
+}
+
+.dark-theme .ant-color-picker-panel {
+  background-color: rgba(36, 40, 56, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .ant-color-picker-handler {
+  border-color: #fff;
+}
+
+.dark-theme .ant-color-picker-slider-container {
+  background-color: rgba(36, 40, 56, 0.95);
+}
+
+.dark-theme .ant-color-picker-params input {
+  background-color: rgba(36, 40, 56, 0.6);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* 预设颜色样式 */
+.color-preset-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.color-preset-item {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.color-preset-item:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.color-preset-item.selected {
+  box-shadow: 0 0 0 2px #1890ff;
+}
+
+/* 为侧边栏Logo标题添加特殊样式 */
+.sidebar-logo-title {
+  font-family: 'SF Pro Display', 'Roboto', sans-serif;
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+/* Logo文字前加图标样式 */
+.logo-icon {
+  color: #1890ff;
+  font-size: 28px;
+  margin-right: 10px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.dark-theme .logo-icon {
+  color: #2196f3;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* 列表项悬停效果 */
+.list-item-hover:hover {
+  background-color: var(--hover-color);
+  transition: background-color 0.3s;
+}
+
+/* 侧边栏折叠状态下的悬停效果 */
+.light-theme .glass-sidebar.ant-layout-sider-collapsed {
+  transition: width 0.2s ease-in-out, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.light-theme .glass-sidebar.ant-layout-sider-collapsed::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -5px;
+  width: 5px;
+  height: 100%;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.light-theme .glass-sidebar.ant-layout-sider-collapsed:hover {
+  box-shadow: 0 0 20px rgba(24, 144, 255, 0.15) !important;
+}
+
+.light-theme .glass-sidebar.ant-layout-sider-collapsed:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(24, 144, 255, 0.3), rgba(24, 144, 255, 0.8));
+  border-radius: 0 3px 3px 0;
+  animation: glowEffect 1.5s infinite alternate;
+  z-index: 101;
+}
+
+@keyframes glowEffect {
+  from {
+    opacity: 0.5;
+    box-shadow: 0 0 5px rgba(24, 144, 255, 0.3);
+  }
+  to {
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(24, 144, 255, 0.6);
+  }
+}
+
+/* 菜单图标在侧边栏折叠悬停时的效果 */
+.light-theme .glass-sidebar.ant-layout-sider-collapsed:hover .ant-menu-item .ant-menu-item-icon {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+/* 确保图标居中且拥有正确的过渡效果 */
+.ant-layout-sider-collapsed .ant-menu-item .ant-menu-item-icon {
+  margin-right: 0 !important;
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+/* 侧边栏折叠状态下菜单项悬停增强效果 */
+.light-theme .glass-sidebar.ant-layout-sider-collapsed .ant-menu-item {
+  position: relative;
+  overflow: visible;
+}
+
+.light-theme .glass-sidebar.ant-layout-sider-collapsed .ant-menu-item::after {
+  content: attr(title);
+  position: absolute;
+  left: 60px;
+  top: 50%;
+  transform: translateY(-50%) translateX(10px);
+  opacity: 0;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 6px 12px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  white-space: nowrap;
+  font-size: 14px;
+  pointer-events: none;
+  transition: all 0.2s ease-out;
+  z-index: 1000;
+  visibility: hidden;
+}
+
+.light-theme .glass-sidebar.ant-layout-sider-collapsed .ant-menu-item:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+  visibility: visible;
+}
+
+/* 为折叠时的菜单项添加标题属性，以便显示悬停文本 */
+.light-theme .glass-sidebar.ant-layout-sider-collapsed .ant-menu-item:nth-child(1)::after {
+  content: '仪表盘';
+}
+
+.light-theme .glass-sidebar.ant-layout-sider-collapsed .ant-menu-item:nth-child(2)::after {
+  content: '剪贴板历史';
+}
+
+.light-theme .glass-sidebar.ant-layout-sider-collapsed .ant-menu-item:nth-child(3)::after {
+  content: 'AI 对话';
+}
+
+.light-theme .glass-sidebar.ant-layout-sider-collapsed .ant-menu-item:nth-child(4)::after {
+  content: 'AI 角色管理';
+}
+
+.light-theme .glass-sidebar.ant-layout-sider-collapsed .ant-menu-item:nth-child(5)::after {
+  content: 'AI 配置';
+}
+
+.light-theme .glass-sidebar.ant-layout-sider-collapsed .ant-menu-item:nth-child(6)::after {
+  content: '设置';
+}
+
+/* 为折叠模式下的菜单项添加悬停效果 */
+.light-theme .glass-sidebar.ant-layout-sider-collapsed .ant-menu-item:hover {
+  background: rgba(24, 144, 255, 0.08) !important;
+  border-right: 3px solid rgba(24, 144, 255, 0.5);
+}
+
+/* 选中项的强调效果 */
+.light-theme .glass-sidebar.ant-layout-sider-collapsed .ant-menu-item-selected {
+  border-right: 3px solid #1890ff;
+}
+
+/* 暗色主题下侧边栏折叠状态的悬停效果 */
+.dark-theme .glass-sidebar.ant-layout-sider-collapsed {
+  transition: width 0.2s ease-in-out, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.dark-theme .glass-sidebar.ant-layout-sider-collapsed::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -5px;
+  width: 5px;
+  height: 100%;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.dark-theme .glass-sidebar.ant-layout-sider-collapsed:hover {
+  box-shadow: 0 0 20px rgba(33, 150, 243, 0.2) !important;
+}
+
+.dark-theme .glass-sidebar.ant-layout-sider-collapsed:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(33, 150, 243, 0.3), rgba(33, 150, 243, 0.8));
+  border-radius: 0 3px 3px 0;
+  animation: darkGlowEffect 1.5s infinite alternate;
+  z-index: 101;
+}
+
+@keyframes darkGlowEffect {
+  from {
+    opacity: 0.5;
+    box-shadow: 0 0 5px rgba(33, 150, 243, 0.3);
+  }
+  to {
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(33, 150, 243, 0.6);
+  }
+}
+
+/* 暗色主题下菜单图标在侧边栏折叠悬停时的效果 */
+.dark-theme .glass-sidebar.ant-layout-sider-collapsed:hover .ant-menu-item .ant-menu-item-icon {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+/* 暗色主题下侧边栏折叠状态下菜单项悬停增强效果 */
+.dark-theme .glass-sidebar.ant-layout-sider-collapsed .ant-menu-item {
+  position: relative;
+  overflow: visible;
+}
+
+.dark-theme .glass-sidebar.ant-layout-sider-collapsed .ant-menu-item::after {
+  content: attr(title);
+  position: absolute;
+  left: 60px;
+  top: 50%;
+  transform: translateY(-50%) translateX(10px);
+  opacity: 0;
+  background: rgba(36, 40, 56, 0.95);
+  padding: 6px 12px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+  pointer-events: none;
+  transition: all 0.2s ease-out;
+  z-index: 1000;
+  visibility: hidden;
+}
+
+.dark-theme .glass-sidebar.ant-layout-sider-collapsed .ant-menu-item:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+  visibility: visible;
+}
+
+/* 为暗色主题下折叠模式下的菜单项添加悬停效果 */
+.dark-theme .glass-sidebar.ant-layout-sider-collapsed .ant-menu-item:hover {
+  background: rgba(33, 150, 243, 0.15) !important;
+  border-right: 3px solid rgba(33, 150, 243, 0.5);
+}
+
+/* 暗色主题下选中项的强调效果 */
+.dark-theme .glass-sidebar.ant-layout-sider-collapsed .ant-menu-item-selected {
+  border-right: 3px solid #2196f3;
+}

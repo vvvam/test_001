@@ -1,0 +1,596 @@
+/* 深色主题CSS */
+:root {
+  --dark-bg-color: #1f1f1f;
+  --dark-bg-color-light: #2a2a2a;
+  --dark-bg-color-lighter: #333;
+  --dark-border-color: #444;
+  --dark-text-color: #e0e0e0;
+  --dark-text-secondary: #aaa;
+  --dark-card-bg: rgba(40, 40, 40, 0.6);
+  --dark-user-message-bg: rgba(30, 144, 255, 0.2);
+  --dark-assistant-message-bg: rgba(82, 196, 26, 0.15);
+  --dark-input-bg: #333;
+  --dark-shadow: rgba(0, 0, 0, 0.3);
+  --dark-header-gradient: linear-gradient(to right, #1a1a1a, #2a2a2a);
+  --dark-danger-bg: #5c0011;
+  --dark-danger-border: #7e0016;
+}
+
+/* 全局深色主题应用 */
+.dark-theme {
+  background-color: var(--dark-bg-color);
+  color: var(--dark-text-color);
+}
+
+/* 替换媒体查询为类选择器 */
+/* 全局容器背景 */
+.dark-theme.chat-container {
+  background-color: var(--dark-bg-color) !important;
+  color: var(--dark-text-color) !important;
+}
+
+/* 顶部标题栏 */
+.dark-theme.chat-header {
+  background: var(--dark-header-gradient) !important;
+  border-bottom: 1px solid var(--dark-border-color) !important;
+  box-shadow: 0 2px 5px var(--dark-shadow) !important;
+}
+
+.dark-theme .chat-header h4,
+.dark-theme.chat-header h4 {
+  color: var(--dark-text-color) !important;
+}
+
+.dark-theme .chat-header button, 
+.dark-theme .chat-header .ant-btn-text,
+.dark-theme.chat-header button, 
+.dark-theme.chat-header .ant-btn-text {
+  color: var(--dark-text-color) !important;
+}
+
+/* 分隔线 */
+.dark-theme .ant-divider {
+  border-color: var(--dark-border-color) !important;
+}
+
+/* 消息容器 */
+.dark-theme.messages-container {
+  background-color: var(--dark-bg-color) !important;
+}
+
+/* 空消息提示 */
+.dark-theme .messages-container .ant-typography-secondary,
+.dark-theme.messages-container .ant-typography-secondary {
+  color: var(--dark-text-secondary) !important;
+}
+
+/* 用户消息样式 */
+.dark-theme .user-message .message-content > div > div:nth-child(2) {
+  background-color: var(--dark-user-message-bg) !important;
+  box-shadow: 0 1px 2px var(--dark-shadow) !important;
+}
+
+/* AI助手消息样式 */
+.dark-theme .ai-message .message-content > div > div:nth-child(2) {
+  background-color: var(--dark-assistant-message-bg) !important;
+  box-shadow: 0 1px 2px var(--dark-shadow) !important;
+}
+
+/* 消息文本 */
+.dark-theme .message-content .ant-typography {
+  color: var(--dark-text-color) !important;
+}
+
+/* 消息时间 */
+.dark-theme .message-content .ant-typography-secondary {
+  color: var(--dark-text-secondary) !important;
+}
+
+/* 引用卡片 */
+.dark-theme .message-content .ant-card,
+.dark-theme .input-container .ant-card {
+  background-color: var(--dark-card-bg) !important;
+  border-color: var(--dark-border-color) !important;
+}
+
+.dark-theme .message-content .ant-card .ant-typography,
+.dark-theme .input-container .ant-card .ant-typography {
+  color: var(--dark-text-color) !important;
+}
+
+.dark-theme .message-content .ant-card .ant-typography-secondary,
+.dark-theme .input-container .ant-card .ant-typography-secondary {
+  color: var(--dark-text-secondary) !important;
+}
+
+/* 输入区域 */
+.dark-theme.input-container {
+  background-color: var(--dark-bg-color-light) !important;
+  border-top: 1px solid var(--dark-border-color) !important;
+}
+
+/* 集成输入框布局 */
+.dark-theme .input-container > div:first-of-type {
+  background-color: var(--dark-input-bg) !important;
+  border: 1px solid var(--dark-border-color) !important;
+}
+
+/* 输入框 */
+.dark-theme .input-container .ant-input,
+.dark-theme.input-container .ant-input,
+.dark-theme.ant-input,
+.dark-theme .ant-input {
+  background-color: transparent !important;
+  color: var(--dark-text-color) !important;
+  border-color: transparent !important;
+}
+
+/* 集成输入框内的文本区域 */
+.dark-theme .input-container > div .ant-input {
+  background-color: transparent !important;
+}
+
+/* 按钮样式 */
+.dark-theme .input-container .ant-btn:not(.ant-btn-primary):not(.ant-btn-dangerous),
+.dark-theme.input-container .ant-btn:not(.ant-btn-primary):not(.ant-btn-dangerous) {
+  background-color: var(--dark-bg-color-lighter) !important;
+  border-color: var(--dark-border-color) !important;
+  color: var(--dark-text-color) !important;
+}
+
+/* 输入区域中的文本按钮 */
+.dark-theme .input-container .ant-btn-text:not(.ant-btn-primary):not(.ant-btn-dangerous) {
+  background-color: transparent !important;
+  color: var(--dark-text-secondary) !important;
+}
+
+.dark-theme .input-container .ant-btn-text:hover:not(.ant-btn-primary):not(.ant-btn-dangerous) {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: var(--dark-text-color) !important;
+}
+
+/* 停止按钮样式 */
+.dark-theme .input-container .ant-btn-dangerous,
+.dark-theme.input-container .ant-btn-dangerous {
+  background-color: var(--dark-danger-bg) !important;
+  border-color: var(--dark-danger-border) !important;
+  color: var(--dark-text-color) !important;
+}
+
+/* 输入容器底部提示文本 */
+.dark-theme .input-container .ant-typography-secondary,
+.dark-theme.input-container .ant-typography-secondary {
+  color: var(--dark-text-secondary) !important;
+}
+
+/* 模态框样式 */
+.dark-theme.ant-modal .ant-modal-content,
+.dark-theme.ant-modal .ant-modal-header,
+.dark-theme .ant-modal-content,
+.dark-theme .ant-modal-header {
+  background-color: var(--dark-bg-color-light) !important;
+  color: var(--dark-text-color) !important;
+}
+
+.dark-theme.ant-modal .ant-modal-title,
+.dark-theme .ant-modal-title {
+  color: var(--dark-text-color) !important;
+}
+
+.dark-theme.ant-modal .ant-modal-header,
+.dark-theme .ant-modal-header {
+  border-bottom: 1px solid var(--dark-border-color) !important;
+}
+
+.dark-theme.ant-modal .ant-modal-footer,
+.dark-theme .ant-modal-footer {
+  border-top: 1px solid var(--dark-border-color) !important;
+  background-color: var(--dark-bg-color-lighter) !important;
+}
+
+/* 模态框按钮 */
+.dark-theme.ant-modal .ant-modal-footer .ant-btn:not(.ant-btn-primary),
+.dark-theme .ant-modal-footer .ant-btn:not(.ant-btn-primary) {
+  background-color: var(--dark-bg-color-lighter) !important;
+  border-color: var(--dark-border-color) !important;
+  color: var(--dark-text-color) !important;
+}
+
+/* 选项卡 */
+.dark-theme .ant-tabs-tab {
+  color: var(--dark-text-secondary) !important;
+}
+
+.dark-theme .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #1890ff !important;
+}
+
+.dark-theme .ant-tabs-nav::before {
+  border-bottom-color: var(--dark-border-color) !important;
+}
+
+/* 标签 */
+.dark-theme .ant-tag {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* 剪贴板列表 */
+.dark-theme .clipboard-item {
+  border-color: var(--dark-border-color) !important;
+  background-color: var(--dark-bg-color-lighter) !important;
+}
+
+.dark-theme .clipboard-item.selected {
+  background-color: rgba(24, 144, 255, 0.2) !important;
+  border-color: #1890ff !important;
+}
+
+/* 发送按钮优化 */
+.send-button {
+  border-radius: 50% !important;
+  width: 36px !important;
+  height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+}
+
+/* 引用详情框 */
+.dark-theme .detail-item {
+  background-color: var(--dark-bg-color-lighter) !important;
+  border-color: var(--dark-border-color) !important;
+}
+
+.dark-theme .detail-item-content {
+  background-color: var(--dark-input-bg) !important;
+  border-color: var(--dark-border-color) !important;
+  color: var(--dark-text-color) !important;
+}
+
+/* 通用文本 */
+.dark-theme .ant-typography {
+  color: var(--dark-text-color) !important;
+}
+
+.dark-theme .ant-typography-secondary {
+  color: var(--dark-text-secondary) !important;
+}
+
+/* 解决模态框主体背景色问题 */
+.dark-theme .ant-modal-body {
+  background-color: var(--dark-bg-color-light) !important;
+  color: var(--dark-text-color) !important;
+}
+
+/* =============== 补充一些其他深色主题样式 =============== */
+
+/* 下拉菜单样式 */
+.ant-dropdown-menu {
+  background-color: var(--dark-bg-color-light) !important;
+  box-shadow: 0 3px 6px var(--dark-shadow) !important;
+  border: 1px solid var(--dark-border-color) !important;
+}
+
+.ant-dropdown-menu-item,
+.ant-dropdown-menu-submenu-title {
+  color: var(--dark-text-color) !important;
+}
+
+.ant-dropdown-menu-item:hover,
+.ant-dropdown-menu-submenu-title:hover {
+  background-color: var(--dark-bg-color-lighter) !important;
+}
+
+/* 弹出框样式 */
+.ant-popover-inner {
+  background-color: var(--dark-bg-color-light) !important;
+  box-shadow: 0 3px 6px var(--dark-shadow) !important;
+}
+
+.ant-popover-title {
+  color: var(--dark-text-color) !important;
+  border-bottom-color: var(--dark-border-color) !important;
+}
+
+.ant-popover-inner-content {
+  color: var(--dark-text-color) !important;
+}
+
+.ant-popover-arrow-content {
+  background-color: var(--dark-bg-color-light) !important;
+}
+
+/* 提示框样式 */
+.ant-tooltip-inner {
+  background-color: var(--dark-bg-color-lighter) !important;
+  box-shadow: 0 3px 6px var(--dark-shadow) !important;
+}
+
+/* 选择器样式 */
+.ant-select-dropdown {
+  background-color: var(--dark-bg-color-light) !important;
+  box-shadow: 0 3px 6px var(--dark-shadow) !important;
+  border: 1px solid var(--dark-border-color) !important;
+}
+
+.ant-select-item {
+  color: var(--dark-text-color) !important;
+}
+
+.ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+  background-color: var(--dark-bg-color-lighter) !important;
+}
+
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  background-color: rgba(24, 144, 255, 0.2) !important;
+  color: var(--dark-text-color) !important;
+}
+
+/* 列表样式 */
+.dark-theme .ant-list-item {
+  border-bottom-color: var(--dark-border-color) !important;
+}
+
+/* 消息通知样式 */
+.ant-message-notice-content {  /* 消息通知需要全局应用 */
+  background-color: var(--dark-bg-color-light) !important;
+  color: var(--dark-text-color) !important;
+  box-shadow: 0 3px 6px var(--dark-shadow) !important;
+}
+
+/* 加载状态样式 */
+.dark-theme .ant-spin-dot-item {
+  background-color: #1890ff !important;
+}
+
+/* 按钮禁用状态 */
+.dark-theme .ant-btn-dangerous[disabled],
+.dark-theme .ant-btn-primary[disabled] {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* 控制发送按钮在深色模式下的颜色 */
+.dark-theme .send-button.ant-btn-primary {
+  background-color: #1890ff !important;
+  border-color: #1890ff !important;
+}
+
+.dark-theme .send-button.ant-btn-default {
+  background-color: var(--dark-bg-color-lighter) !important;
+  border-color: var(--dark-border-color) !important;
+  color: var(--dark-text-color) !important;
+}
+
+.dark-theme .send-button.ant-btn-dangerous {
+  background-color: var(--dark-danger-bg) !important;
+  border-color: var(--dark-danger-border) !important;
+  color: white !important;
+}
+
+/* 页面全局背景和文字颜色 */
+body.dark-theme {
+  background-color: var(--dark-bg-color) !important;
+  color: var(--dark-text-color) !important;
+}
+
+/* 设置antd组件全局样式 */
+.dark-theme .ant-layout {
+  background-color: var(--dark-bg-color) !important;
+}
+
+/* 添加chat-dark-theme.css的内容，支持抽屉组件 */
+
+/* 深色模式下的抽屉样式 */
+.dark-theme .ant-drawer-header {
+  background-color: #1f1f1f;
+  border-bottom: 1px solid #333;
+}
+
+.dark-theme .ant-drawer-title {
+  color: #e0e0e0;
+}
+
+.dark-theme .ant-drawer-close {
+  color: #e0e0e0;
+}
+
+.dark-theme .ant-drawer-close:hover {
+  color: #fff;
+}
+
+.dark-theme .ant-drawer-content {
+  background-color: #1f1f1f;
+}
+
+.dark-theme .ant-drawer-body {
+  color: #e0e0e0;
+}
+
+.dark-theme .ant-divider {
+  border-color: #333;
+}
+
+/* 历史记录列表项悬停样式 */
+.dark-theme .history-item:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* 浅色模式下的历史记录列表项悬停样式 */
+.history-item:hover {
+  background-color: rgba(0, 0, 0, 0.025) !important;
+}
+
+/* 让按钮在深色模式下更加突出 */
+.dark-theme .ant-btn-text {
+  color: #e0e0e0;
+}
+
+.dark-theme .ant-btn-text:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* 深色模式下Tag的样式 */
+.dark-theme .ant-tag {
+  background-color: #333;
+  border-color: #444;
+}
+
+/* 修改聊天历史抽屉的动作按钮样式 */
+.history-item .ant-list-item-action {
+  margin-left: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.history-item:hover .ant-list-item-action {
+  opacity: 1;
+}
+
+/* 深色模式下的导入/导出按钮 */
+.dark-theme .ant-list-item-action .ant-btn-text {
+  color: #aaa;
+}
+
+.dark-theme .ant-list-item-action .ant-btn-text:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* 确保抽屉标题和按钮在深色模式下可见 */
+.dark-theme .ant-drawer-header {
+  color: #e0e0e0;
+}
+
+.dark-theme .ant-drawer-extra .ant-btn-text {
+  color: #e0e0e0;
+}
+
+.dark-theme .ant-drawer-extra .ant-btn-text:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* 消息数量标签样式 */
+.dark-theme .ant-tag {
+  background-color: #333;
+  color: #e0e0e0;
+}
+
+/* 添加以下与markdown相关的深色主题样式 */
+.dark-theme .ai-message .markdown-wrapper {
+  background-color: transparent !important;
+}
+
+.dark-theme .markdown-wrapper pre {
+  background-color: var(--dark-bg-color-lighter) !important;
+  border: 1px solid var(--dark-border-color) !important;
+}
+
+.dark-theme .markdown-wrapper code:not(pre code) {
+  background-color: rgba(110, 118, 129, 0.4) !important;
+  color: #e0e0e0 !important;
+}
+
+.dark-theme .markdown-wrapper blockquote {
+  background-color: rgba(40, 40, 40, 0.4) !important;
+  border-left: 4px solid var(--dark-border-color) !important;
+  color: var(--dark-text-secondary) !important;
+}
+
+.dark-theme .markdown-wrapper table {
+  border-color: var(--dark-border-color) !important;
+}
+
+.dark-theme .markdown-wrapper table th,
+.dark-theme .markdown-wrapper table td {
+  border-color: var(--dark-border-color) !important;
+}
+
+.dark-theme .markdown-wrapper table tr {
+  background-color: var(--dark-bg-color) !important;
+}
+
+.dark-theme .markdown-wrapper table tr:nth-child(2n) {
+  background-color: var(--dark-bg-color-light) !important;
+}
+
+.dark-theme .markdown-wrapper a {
+  color: #58a6ff !important;
+}
+
+.dark-theme .markdown-wrapper h1,
+.dark-theme .markdown-wrapper h2,
+.dark-theme .markdown-wrapper h3,
+.dark-theme .markdown-wrapper h4,
+.dark-theme .markdown-wrapper h5,
+.dark-theme .markdown-wrapper h6 {
+  color: var(--dark-text-color) !important;
+}
+
+.dark-theme .markdown-wrapper ul,
+.dark-theme .markdown-wrapper ol {
+  color: var(--dark-text-color) !important;
+}
+
+.dark-theme .markdown-wrapper p {
+  color: var(--dark-text-color) !important;
+}
+
+/* 修复代码块语法高亮在深色模式下的问题 */
+.dark-theme .markdown-wrapper pre > code {
+  background-color: transparent !important;
+  color: #e0e0e0 !important;
+}
+
+/* 确保小屏幕上的markdown内容正确显示 */
+.markdown-small .markdown-wrapper pre,
+.markdown-small .markdown-wrapper code {
+  font-size: 12px !important;
+}
+
+.markdown-small .markdown-wrapper h1 {
+  font-size: 18px !important;
+}
+
+.markdown-small .markdown-wrapper h2 {
+  font-size: 16px !important;
+}
+
+.markdown-small .markdown-wrapper h3,
+.markdown-small .markdown-wrapper h4 {
+  font-size: 14px !important;
+}
+
+.markdown-small .markdown-wrapper p,
+.markdown-small .markdown-wrapper li {
+  font-size: 14px !important;
+}
+
+/* 深色模式下的标题装饰线颜色 */
+.dark-theme .md-h1::before {
+  background-color: #1890ff;
+}
+
+.dark-theme .md-h2::before {
+  background-color: #52c41a;
+}
+
+.dark-theme .md-h3::before {
+  background-color: #fa8c16;
+}
+
+/* 确保深色模式下markdown标题的可见度 */
+.dark-theme .markdown-content .md-heading,
+.dark-theme .markdown-wrapper .md-heading {
+  color: var(--dark-text-color) !important;
+  border-bottom-color: var(--dark-border-color) !important;
+}
+
+.dark-theme .markdown-content .md-h1,
+.dark-theme .markdown-content .md-h2,
+.dark-theme .markdown-wrapper .md-h1,
+.dark-theme .markdown-wrapper .md-h2 {
+  border-bottom: 1px solid var(--dark-border-color) !important;
+} 

@@ -1,0 +1,883 @@
+/* Markdown样式 */
+.markdown-content {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+/* 标题样式 */
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.markdown-content h1 {
+  font-size: 2em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid #eaecef;
+}
+
+.markdown-content h2 {
+  font-size: 1.5em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid #eaecef;
+}
+
+.markdown-content h3 {
+  font-size: 1.25em;
+}
+
+.markdown-content h4 {
+  font-size: 1em;
+}
+
+/* 段落和列表样式 */
+.markdown-content p,
+.markdown-content ul,
+.markdown-content ol {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  padding-left: 2em;
+}
+
+.markdown-content li {
+  margin-bottom: 4px;
+}
+
+.markdown-content li > p {
+  margin-top: 16px;
+}
+
+/* 代码块样式 */
+.markdown-content pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  border-radius: 6px;
+  margin-bottom: 16px; /* 确保底部有足够的间距 */
+}
+
+.markdown-content code {
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  border-radius: 3px;
+}
+
+.markdown-content pre > code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+/* 引用样式 */
+.markdown-content blockquote {
+  padding: 0 1em;
+  color: #6a737d;
+  border-left: 0.25em solid #dfe2e5;
+  margin: 0 0 16px 0;
+}
+
+.markdown-content blockquote > :first-child {
+  margin-top: 0;
+}
+
+.markdown-content blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+/* 确保引用块底部有足够间距 */
+.markdown-content blockquote:after {
+  content: "";
+  display: block;
+  clear: both;
+  margin-bottom: 16px;
+}
+
+/* 表格样式 */
+.markdown-content table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  margin-top: 0;
+  margin-bottom: 16px;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.markdown-content table th {
+  font-weight: 600;
+}
+
+.markdown-content table th,
+.markdown-content table td {
+  padding: 6px 13px;
+  border: 1px solid #dfe2e5;
+}
+
+.markdown-content table tr {
+  background-color: #fff;
+  border-top: 1px solid #c6cbd1;
+}
+
+.markdown-content table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+/* 表格容器样式 */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 16px;
+}
+
+/* 链接样式 */
+.markdown-content a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.markdown-content a:hover {
+  text-decoration: underline;
+}
+
+/* 图片样式 */
+.markdown-content img {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* 水平线样式 */
+.markdown-content hr {
+  height: 0.25em;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #e1e4e8;
+  border: 0;
+}
+
+/* 深色模式样式 */
+.dark-theme .markdown-content {
+  color: #e0e0e0;
+}
+
+.dark-theme .markdown-content h1,
+.dark-theme .markdown-content h2 {
+  border-bottom-color: #444;
+}
+
+.dark-theme .markdown-content blockquote {
+  color: #b0b0b0;
+  border-left-color: #555;
+}
+
+.dark-theme .markdown-content code {
+  background-color: rgba(110, 118, 129, 0.4);
+}
+
+.dark-theme .markdown-content pre {
+  background-color: rgba(30, 30, 30, 0.6) !important;
+  border: 1px solid #555;
+}
+
+.dark-theme .markdown-content hr {
+  background-color: #444;
+}
+
+.dark-theme .markdown-content table th,
+.dark-theme .markdown-content table td {
+  border-color: #444;
+}
+
+.dark-theme .markdown-content table tr {
+  background-color: #1f1f1f;
+  border-top-color: #444;
+}
+
+.dark-theme .markdown-content table tr:nth-child(2n) {
+  background-color: #2a2a2a;
+}
+
+.dark-theme .markdown-content a {
+  color: #58a6ff;
+}
+
+/* 在小屏幕上的样式调整 */
+@media (max-width: 768px) {
+  .markdown-small pre {
+    max-width: 100%;
+    overflow-x: auto;
+    font-size: 12px;
+  }
+  
+  .markdown-small code {
+    font-size: 12px;
+  }
+  
+  .markdown-small table {
+    font-size: 12px;
+  }
+  
+  .markdown-small h1 {
+    font-size: 18px;
+  }
+  
+  .markdown-small h2 {
+    font-size: 16px;
+  }
+  
+  .markdown-small h3,
+  .markdown-small h4 {
+    font-size: 14px;
+  }
+  
+  .markdown-small p,
+  .markdown-small li {
+    font-size: 14px;
+  }
+}
+
+/* 确保换行和空白行正确显示 */
+.line-break {
+  display: block;
+  height: 1em;
+  margin-bottom: 1em;
+  content: "";
+}
+
+/* 修复语法高亮样式问题 */
+.dark-theme pre[class*="language-"],
+.dark-theme code[class*="language-"] {
+  text-shadow: none !important;
+}
+
+/* 确保图文混排正确对齐 */
+.markdown-content p img {
+  vertical-align: middle;
+}
+
+/* 修复列表项中的代码块样式 */
+.markdown-content li > pre {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+/* 添加对标题样式的特殊处理 */
+.md-heading {
+  font-weight: 600;
+  line-height: 1.25;
+  margin-top: 24px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.md-h1 {
+  font-size: 2em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid #eaecef;
+}
+
+.md-h2 {
+  font-size: 1.5em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid #eaecef;
+}
+
+.md-h3 {
+  font-size: 1.25em;
+}
+
+.md-h4 {
+  font-size: 1em;
+}
+
+.md-h5 {
+  font-size: 0.875em;
+}
+
+.md-h6 {
+  font-size: 0.85em;
+  color: #6a737d;
+}
+
+/* 深色模式下的标题样式 */
+.dark-theme .md-h1,
+.dark-theme .md-h2 {
+  border-bottom-color: #444;
+}
+
+.dark-theme .md-h6 {
+  color: #b0b0b0;
+}
+
+/* 空段落样式 */
+.empty-p {
+  min-height: 1em;
+  line-height: 1.6;
+}
+
+/* 确保标题之间有足够的间距 */
+.md-heading + .md-heading {
+  margin-top: 1.5em;
+}
+
+/* 强制标题显示为块级元素，并添加清晰的视觉边界 */
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6,
+.md-h1, .md-h2, .md-h3, .md-h4, .md-h5, .md-h6 {
+  display: block;
+  width: 100%;
+  clear: both;
+  position: relative;
+}
+
+/* 为标题添加特殊标记以便于识别 */
+.md-h1::before, 
+.md-h2::before, 
+.md-h3::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  background-color: #1890ff;
+  position: absolute;
+  left: -8px;
+  top: 0;
+  bottom: 0;
+  border-radius: 2px;
+}
+
+.md-h1::before {
+  background-color: #1890ff;
+}
+
+.md-h2::before {
+  background-color: #52c41a;
+}
+
+.md-h3::before {
+  background-color: #fa8c16;
+}
+
+/* 确保在小屏幕上标题也能正确显示 */
+@media (max-width: 768px) {
+  .md-h1::before, 
+  .md-h2::before, 
+  .md-h3::before {
+    left: -4px;
+    width: 2px;
+  }
+  
+  .markdown-small .md-heading.md-h1 {
+    font-size: 20px !important;
+    line-height: 1.4;
+  }
+  
+  .markdown-small .md-heading.md-h2 {
+    font-size: 18px !important;
+    line-height: 1.4;
+  }
+  
+  .markdown-small .md-heading.md-h3 {
+    font-size: 16px !important;
+    line-height: 1.4;
+  }
+}
+
+/* 思考标签样式 - 现代化设计 */
+.thinking-control {
+  margin-bottom: 18px;
+}
+
+.thinking-toggle {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: transparent;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  border-left: 3px solid #52c41a;
+  position: relative;
+  overflow: hidden;
+}
+
+.thinking-toggle:hover {
+  background: rgba(82, 196, 26, 0.05);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.thinking-toggle.active {
+  background: rgba(82, 196, 26, 0.08);
+  box-shadow: 0 2px 5px rgba(82, 196, 26, 0.25);
+}
+
+.thinking-indicator {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #999;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.thinking-toggle.active .thinking-indicator {
+  background: #52c41a;
+  box-shadow: 0 0 0 3px rgba(82, 196, 26, 0.2);
+}
+
+.thinking-indicator::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 50%;
+  border: 1px solid rgba(82, 196, 26, 0.5);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.thinking-toggle.active .thinking-indicator::after {
+  opacity: 1;
+  animation: pulse 2s infinite;
+}
+
+.thinking-label {
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.thinking-toggle.active .thinking-label {
+  color: #52c41a;
+}
+
+.thinking-content {
+  border-radius: 8px;
+  background: linear-gradient(to bottom, rgba(82, 196, 26, 0.08), rgba(82, 196, 26, 0.02));
+  border: 1px solid rgba(82, 196, 26, 0.15);
+  padding: 18px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  max-height: 400px;
+  overflow-y: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.thinking-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to right, #52c41a, rgba(82, 196, 26, 0.5));
+  border-radius: 4px 4px 0 0;
+}
+
+.thinking-content::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.8), transparent);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.thinking-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(82, 196, 26, 0.2);
+}
+
+.thinking-title {
+  font-weight: 600;
+  color: #52c41a;
+  font-size: 15px;
+  position: relative;
+  padding-left: 20px;
+  animation: titleGlow 3s ease-in-out infinite;
+}
+
+.thinking-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2352c41a'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* 动画效果 */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 深色模式样式 */
+.dark-theme .thinking-toggle {
+  color: #c9c9c9;
+  background-color: rgba(50, 50, 50, 0.4);
+  border-left: 3px solid #52c41a;
+}
+
+.dark-theme .thinking-toggle:hover {
+  background-color: rgba(50, 50, 50, 0.6);
+}
+
+.dark-theme .thinking-toggle.active {
+  background-color: rgba(82, 196, 26, 0.15);
+}
+
+.dark-theme .thinking-content {
+  background: linear-gradient(to bottom, rgba(40, 40, 40, 0.8), rgba(35, 35, 35, 0.9));
+  border-color: rgba(82, 196, 26, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(82, 196, 26, 0.5) rgba(40, 40, 40, 0.5);
+}
+
+.dark-theme .thinking-content::after {
+  background: linear-gradient(to top, rgba(30, 30, 30, 0.8), transparent);
+}
+
+.dark-theme .thinking-title {
+  color: #7ed321;
+}
+
+/* 在小屏幕上的样式调整 */
+@media (max-width: 768px) {
+  .thinking-toggle {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+  
+  .thinking-content {
+    padding: 12px;
+    max-height: 300px;
+    font-size: 13px;
+  }
+  
+  .thinking-title {
+    font-size: 14px;
+  }
+}
+
+/* 进一步优化思考标签体验 */
+.thinking-toggle::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(82, 196, 26, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transition: all 0.8s ease;
+}
+
+.thinking-toggle:hover::after {
+  left: 100%;
+}
+
+.thinking-content {
+  position: relative;
+}
+
+.thinking-content code {
+  background-color: rgba(82, 196, 26, 0.1);
+  border: 1px solid rgba(82, 196, 26, 0.2);
+}
+
+.thinking-content pre {
+  border-left: 3px solid rgba(82, 196, 26, 0.5);
+}
+
+.thinking-content blockquote {
+  border-left-color: #52c41a;
+}
+
+.thinking-content h1, 
+.thinking-content h2, 
+.thinking-content h3, 
+.thinking-content h4, 
+.thinking-content h5, 
+.thinking-content h6 {
+  color: #52c41a;
+}
+
+.thinking-content a {
+  color: #52c41a;
+  text-decoration: underline;
+}
+
+/* 思考内容的关键词高亮 */
+.thinking-content strong {
+  color: #52c41a;
+  font-weight: 600;
+}
+
+.thinking-content em {
+  color: #1890ff;
+  font-style: italic;
+}
+
+/* 思考内容的列表样式 */
+.thinking-content ul li::before {
+  color: #52c41a;
+}
+
+.thinking-content ol li::marker {
+  color: #52c41a;
+}
+
+/* 思考标题动画效果 */
+@keyframes titleGlow {
+  0%, 100% {
+    text-shadow: 0 0 3px rgba(82, 196, 26, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 6px rgba(82, 196, 26, 0.4);
+  }
+}
+
+/* 深色模式下的额外优化 */
+.dark-theme .thinking-toggle::after {
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(82, 196, 26, 0.2) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.dark-theme .thinking-content code {
+  background-color: rgba(30, 30, 30, 0.9);
+  border-color: rgba(82, 196, 26, 0.3);
+}
+
+.dark-theme .thinking-content {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(82, 196, 26, 0.5) rgba(40, 40, 40, 0.5);
+}
+
+.dark-theme .thinking-content::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.dark-theme .thinking-content::-webkit-scrollbar-track {
+  background: rgba(40, 40, 40, 0.5);
+  border-radius: 4px;
+}
+
+.dark-theme .thinking-content::-webkit-scrollbar-thumb {
+  background-color: rgba(82, 196, 26, 0.5);
+  border-radius: 4px;
+}
+
+/* 实时思考过程的样式 */
+.thinking-toggle.processing {
+  background: rgba(82, 196, 26, 0.05);
+  border-left-color: #1890ff;
+}
+
+.thinking-toggle.processing .thinking-indicator {
+  background: #1890ff;
+  animation: pulse-thinking 1.5s infinite;
+}
+
+.thinking-processing-indicator {
+  color: #1890ff;
+  margin-left: 6px;
+  font-size: 12px;
+  position: relative;
+  padding-left: 18px;
+  animation: blink 1.5s infinite;
+}
+
+.thinking-processing-indicator::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231890ff'%3E%3Cpath d='M15 4V3H9v1H4v2h1v13c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V6h1V4h-5zm2 15H7V6h10v13zM9 8h2v9H9V8zm4 0h2v9h-2V8z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: spin 2s infinite linear;
+}
+
+.thinking-content.processing {
+  background: linear-gradient(to bottom, rgba(24, 144, 255, 0.05), rgba(24, 144, 255, 0.02));
+  border-color: rgba(24, 144, 255, 0.2);
+}
+
+.thinking-content.processing::before {
+  background: linear-gradient(to right, #1890ff, rgba(24, 144, 255, 0.5));
+  animation: progress 2s infinite;
+}
+
+.thinking-live-indicator {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 12px;
+  font-size: 12px;
+  font-weight: normal;
+  color: #1890ff;
+  position: relative;
+  padding-left: 20px;
+}
+
+.thinking-live-indicator::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231890ff'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: pulse 1.5s infinite;
+}
+
+/* 实时思考内容的动画效果 */
+@keyframes progress {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(100% + 200px) 0;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes pulse-thinking {
+  0% {
+    box-shadow: 0 0 0 0 rgba(24, 144, 255, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(24, 144, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(24, 144, 255, 0);
+  }
+}
+
+/* 深色模式下的实时思考样式 */
+.dark-theme .thinking-toggle.processing {
+  background: rgba(40, 40, 40, 0.6);
+  border-left-color: #1890ff;
+}
+
+.dark-theme .thinking-processing-indicator {
+  color: #69b1ff;
+}
+
+.dark-theme .thinking-live-indicator {
+  color: #69b1ff;
+}
+
+.dark-theme .thinking-content.processing {
+  background: linear-gradient(to bottom, rgba(24, 144, 255, 0.1), rgba(40, 40, 40, 0.9));
+  border-color: rgba(24, 144, 255, 0.3);
+}
+
+.dark-theme .thinking-content.processing pre {
+  border-left-color: rgba(24, 144, 255, 0.5);
+}
+
+/* 自动滚动到最新内容的样式 */
+.thinking-scroll-active {
+  scroll-behavior: smooth;
+} 
